@@ -1,5 +1,6 @@
 package com.taotao.controller;
 
+import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,12 @@ public class ItemController {
     @ResponseBody
     public TbItem getTbItemById(@PathVariable Long itemId) {
         return itemService.getTbItemById(itemId);
+    }
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public EUDataGridResult getItemList(int page, int rows) {
+        EUDataGridResult result = itemService.getTbItemList(page, rows);
+        return result;
     }
 }
