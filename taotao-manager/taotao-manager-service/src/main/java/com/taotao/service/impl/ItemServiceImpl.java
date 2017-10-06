@@ -30,7 +30,8 @@ public class ItemServiceImpl implements ItemService {
         PageHelper.startPage(page, rows);
         //返回数据
         EUDataGridResult result = new EUDataGridResult();
-        PageInfo<TbItem> pageItem = PageHelper.startPage(page, rows).doSelectPageInfo(() ->itemMapper.selectByExample(example));
+        PageInfo<TbItem> pageItem = PageHelper.startPage(page, rows).
+                doSelectPageInfo(() ->itemMapper.selectByExample(example));
         result.setRows(pageItem.getList());
         result.setTotal(pageItem.getTotal());
 
